@@ -42,6 +42,7 @@ class GramStainDetail(SelectRelatedMixin, generic.DetailView):
 class CreateGramStain(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
     fields = ('__all__')
     model = models.GramStain
+    success_url = reverse_lazy ('lots:all')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
