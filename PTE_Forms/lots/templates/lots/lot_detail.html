@@ -1,0 +1,22 @@
+{% extends 'lots/lots_base.html' %}
+{% block prelot %}
+
+<h1>{{lot.lot_number}}</h1>
+
+
+
+{% endblock %}
+
+(% block lot_content %)
+<div class="col-md-8">
+  {% if lot.gramstain.count ==0 %}
+    <h2>No GramStain From has been filled out</h2>
+  {% else %}
+    {% for pteform in lot.gramstain.all %}
+      {% include "pteforms/_pteforms.html" %}
+  {% endfor %}
+  {% endif %}
+</div>
+
+
+{% endblock %}

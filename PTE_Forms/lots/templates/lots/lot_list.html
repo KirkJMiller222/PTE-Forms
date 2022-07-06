@@ -1,0 +1,81 @@
+{% extends 'lots/lots_base.html' %}
+
+{% block prelot %}
+
+<div class="col-md-4">
+  <div class="content">
+    {% if user.is_authenicated %}
+    <h2>Welcome Back!
+      <a href="{% url 'pteforms:for_user' username=user.username %}">
+        @{{user.username}}
+      </a>
+    </h2>
+    {% endif %}
+    <h2>Lots</h2>
+    <p>Current Lots in the pipeline </p>
+  </div>
+
+
+  {% if user.is_authenicated %}
+    <a href="{% url 'lots:all' %}" class='btn btn-md btn-fill btn-warning'>
+    <span class='glyphicon glyphicon-plus-sign'>Create New Lot</span></a>
+  {% endif %}
+</div>
+<div class="d-grid gap2 d-md-flex justify-content-md-end">
+  <a href="{% url 'lots:create' %}" class='btn btn-md btn-fill btn-primary'>Create New Lot</a>
+</div>
+
+{% endblock %}
+
+{% block lot_content %}
+
+<table class = 'table table-striped'>
+  <thead>
+    <tr>
+      <th>Lot Number</th>
+      <th>Harvest Size</th>
+      <th>Date Shipped</th>
+      <th>Date Received</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for object in object_list %}
+          <td><a href="#">{{object.lot_number}}</a></td>
+          <td>{{object.harvest_size}}</td>
+          <td>{{object.date_shipped}}</td>
+          <td>{{object.date_received}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<!-- <div class=
+</table>
+  <tbody>
+    <tr>
+      <td><a href="#">{{lot.lot_number}}</a></td>
+      <td>{{lot.harvest_size}}</td>
+      <td>{{lot.date_shipped}}</td>
+      <td>{{lot.date_received}}</td>
+    </tr>
+  </tbody>
+<!-- <div class="col-md-">
+  <div class="list-lots"> -->
+    <!-- {% for lot in object_list %} -->
+      <!-- <a class='list-lot-item' href="{% url 'lots:single' slug=lot.slug %}">
+        <table class='table'>{{lot.lot_number}}</table>
+        <div class="list-lot-item-text container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+          </div>
+        </div>
+      </a> -->
+      <!-- <table class="table"> -->
+
+    <!-- {% endfor %}
+  </div>
+</div> -->
+{% endblock %}

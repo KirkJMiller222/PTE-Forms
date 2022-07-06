@@ -1,0 +1,24 @@
+.navbar {
+  background: #213571;
+}
+/* #title{
+  text-align: center;
+} */
+#form{
+  width:auto;
+  position: fixed;
+  align-items: center;
+  padding: 30px;
+
+}
+#submit{
+  text-align: center;
+  align-items: center;
+  background: #213571;
+  border-color: #213571;
+}
+/* display: inline;
+flex-direction: column;
+justify-content: center;
+/* align-items: center; */
+/* min-height: 100vh; */

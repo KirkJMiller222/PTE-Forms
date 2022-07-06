@@ -1,0 +1,13 @@
+{% extends 'pteforms/pteforms_base.html' %}
+{% load bootstrap5 %}
+{% block form_content %}
+<div class="container">
+  <h1>Gram Stain Form</h1>
+    <form  action="{% url 'lots:create' %}" method="post" id='lotform'>
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" class="btn btn-primary btn-large" value="Create">
+    </form>
+</div>
+
+{% endblock %}
